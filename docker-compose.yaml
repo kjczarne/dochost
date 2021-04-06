@@ -1,0 +1,24 @@
+version: '3.9'
+services:
+  server:
+    build: .
+    restart: always
+    volumes:
+      - type: bind
+        source: './tls'
+        target: '/etc/nginx/certs'
+        read_only: true
+      - type: bind
+        source: './html'
+        target: '/usr/share/nginx/html'
+        read_only: true
+      - type: bind
+        source: './nginx.conf'
+        target: '/etc/nginx/nginx.conf'
+        read_only: true
+    ports:
+      # you should not use port 80 in production (HTTP)
+      # - '80:80'
+      - '443:443'
+
+    
