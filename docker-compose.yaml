@@ -17,8 +17,7 @@ services:
         target: '/etc/nginx/nginx.conf'
         read_only: true
     ports:
-      # you should not use port 80 in production (HTTP)
-      # - '80:80'
+      - '80:80'
       - '443:443'
 
     
